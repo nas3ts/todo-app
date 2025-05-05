@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # local
+    'corsheaders',
     'todos',
     'rest_framework',
 ]
@@ -51,7 +52,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # local
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+
+# Allow frontend to talk to backend
+CORS_ALLOW_ALL_ORIGINS = True # for dev only
 
 ROOT_URLCONF = 'backend.urls'
 
